@@ -1,0 +1,91 @@
+$ pio run    (both environments, via default_envs)
+Processing native (platform: native)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 3 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- ArduinoJson @ 7.4.3
+|-- RunningAverage @ 1.0.0
+Building in release mode
+Compiling .pio/build/native/src/native_main.o
+Compiling .pio/build/native/lib5f7/RunningAverage/RunningAverage.o
+Archiving .pio/build/native/lib5f7/libRunningAverage.a
+Indexing .pio/build/native/lib5f7/libRunningAverage.a
+Linking .pio/build/native/program
+========================= [SUCCESS] Took 2.80 seconds =========================
+
+Processing uno (platform: atmelavr; board: uno; framework: arduino)
+--------------------------------------------------------------------------------
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/atmelavr/uno.html
+PLATFORM: Atmel AVR (5.3.0) > Arduino Uno
+HARDWARE: ATMEGA328P 16MHz, 2KB RAM, 31.50KB Flash
+DEBUG: Current (avr-stub) External (avr-stub, simavr)
+PACKAGES: 
+ - framework-arduino-avr @ 5.4.0 
+ - toolchain-atmelavr @ 1.70300.191015 (7.3.0)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 7 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- RunningAverage @ 1.0.0
+Building in release mode
+Compiling .pio/build/uno/src/arduino_main.cpp.o
+Compiling .pio/build/uno/lib5f7/RunningAverage/RunningAverage.cpp.o
+Archiving .pio/build/uno/lib5f7/libRunningAverage.a
+Archiving .pio/build/uno/libFrameworkArduinoVariant.a
+Indexing .pio/build/uno/libFrameworkArduinoVariant.a
+Indexing .pio/build/uno/lib5f7/libRunningAverage.a
+Compiling .pio/build/uno/FrameworkArduino/CDC.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/HardwareSerial.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/HardwareSerial0.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/HardwareSerial1.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/HardwareSerial2.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/HardwareSerial3.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/IPAddress.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/PluggableUSB.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/Print.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/Stream.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/Tone.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/USBCore.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/WInterrupts.c.o
+Compiling .pio/build/uno/FrameworkArduino/WMath.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/WString.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/abi.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/hooks.c.o
+Compiling .pio/build/uno/FrameworkArduino/main.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/new.cpp.o
+Compiling .pio/build/uno/FrameworkArduino/wiring.c.o
+Compiling .pio/build/uno/FrameworkArduino/wiring_analog.c.o
+Compiling .pio/build/uno/FrameworkArduino/wiring_digital.c.o
+Compiling .pio/build/uno/FrameworkArduino/wiring_pulse.S.o
+Compiling .pio/build/uno/FrameworkArduino/wiring_pulse.c.o
+Compiling .pio/build/uno/FrameworkArduino/wiring_shift.c.o
+Archiving .pio/build/uno/libFrameworkArduino.a
+Indexing .pio/build/uno/libFrameworkArduino.a
+Linking .pio/build/uno/firmware.elf
+Checking size .pio/build/uno/firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]  13.1% (used 268 bytes from 2048 bytes)
+Flash: [==        ]  15.0% (used 4848 bytes from 32256 bytes)
+Building .pio/build/uno/firmware.hex
+========================= [SUCCESS] Took 4.92 seconds =========================
+
+Environment    Status    Duration
+-------------  --------  ------------
+native         SUCCESS   00:00:02.799
+uno            SUCCESS   00:00:04.921
+========================= 2 succeeded in 00:00:07.720 =========================
+
+$ .pio/build/native/program
+reading 21.0 -> average of last 1: 21.00
+reading 21.4 -> average of last 2: 21.20
+reading 20.9 -> average of last 3: 21.10
+reading 21.8 -> average of last 3: 21.37
+reading 22.1 -> average of last 3: 21.60
+reading 21.7 -> average of last 3: 21.87
+{"samples":6,"window":3,"average":21.86666667}

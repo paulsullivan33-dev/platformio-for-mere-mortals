@@ -1,0 +1,30 @@
+site_name: PlatformIO for Mere Mortals
+site_description: Building firmware for boards like Arduino and ESP32 from the command line. Projects and environments in one configuration file, libraries from a registry, desktop builds and unit tests, static checks, and uploading — with the parts that need a real board labelled as such.
+site_url: https://paulsullivan33-dev.github.io/platformio-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What PlatformIO Is: what-platformio-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing PlatformIO: installing-platformio.md
+  - Your First Project: your-first-project.md
+  - The Project File: the-project-file.md
+  - Building for a Board: building-for-a-board.md
+  - Your Own Libraries: your-own-libraries.md
+  - Libraries from the Registry: libraries-from-the-registry.md
+  - Many Environments: many-environments.md
+  - Build Flags: build-flags.md
+  - Testing on the Desktop: testing-on-the-desktop.md
+  - Checking Your Code: checking-your-code.md
+  - Uploading and the Monitor: uploading-and-the-monitor.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

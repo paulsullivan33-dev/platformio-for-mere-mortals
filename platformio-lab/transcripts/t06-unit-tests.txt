@@ -1,0 +1,19 @@
+$ pio test -e native
+Verbosity level can be increased via `-v, -vv, or -vvv` option
+Collected 1 tests
+
+Processing test_running_average in native environment
+--------------------------------------------------------------------------------
+Building...
+Testing...
+test/test_running_average/test_main.cpp:46: test_empty_average_is_zero	[PASSED]
+test/test_running_average/test_main.cpp:47: test_average_before_window_fills	[PASSED]
+test/test_running_average/test_main.cpp:48: test_oldest_reading_leaves_the_window	[PASSED]
+test/test_running_average/test_main.cpp:49: test_clear_starts_over	[PASSED]
+------------ native:test_running_average [PASSED] Took 4.63 seconds ------------
+
+=================================== SUMMARY ===================================
+Environment    Test                  Status    Duration
+-------------  --------------------  --------  ------------
+native         test_running_average  PASSED    00:00:04.626
+================== 4 test cases: 4 succeeded in 00:00:04.626 ==================

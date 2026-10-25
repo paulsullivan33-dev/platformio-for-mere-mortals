@@ -1,0 +1,12 @@
+{
+    "name": "RunningAverage",
+    "version": "1.0.0",
+    "description": "A running average over the most recent sensor readings.",
+    "keywords": "average, sensor, statistics",
+    "authors": [
+        { "name": "Averager Contributors", "maintainer": true }
+    ],
+    "license": "MIT",
+    "frameworks": "*",
+    "platforms": "*"
+}

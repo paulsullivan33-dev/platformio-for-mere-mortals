@@ -1,0 +1,71 @@
+$ pio project init --project-dir averager --board uno
+********************************************************************************
+If you like PlatformIO, please:
+- star it on GitHub > https://github.com/platformio/platformio-core
+- follow us on LinkedIn to stay up-to-date on the latest project news > https://www.linkedin.com/company/platformio/
+- try PlatformIO IDE for embedded development > https://platformio.org/platformio-ide
+********************************************************************************
+
+Usage: pio project init [OPTIONS]
+Try 'pio project init --help' for help.
+
+Error: Invalid value for '--project-dir' / '-d': Directory 'averager' does not exist.
+
+$ find averager -type f | sort
+find: 'averager': No such file or directory
+
+$ cat averager/platformio.ini
+cat: averager/platformio.ini: No such file or directory
+$ mkdir averager
+$ pio project init --project-dir averager --board uno
+The following files/directories have been created in /home/hatch/workspace/platformio-lab/averager
+include - Put project header files here
+lib - Put project specific (private) libraries here
+src - Put project source files here
+platformio.ini - Project Configuration File
+Resolving uno dependencies...
+Platform Manager: Installing atmelavr
+Downloading 0% 10% 20% 30% 40% 50% 60%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Platform Manager: atmelavr@5.3.0 has been installed!
+Tool Manager: Installing platformio/toolchain-atmelavr @ ~1.70300.0
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: toolchain-atmelavr@1.70300.191015 has been installed!
+Tool Manager: Installing platformio/framework-arduino-avr @ ~5.4.0
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: framework-arduino-avr@5.4.0 has been installed!
+Tool Manager: Installing platformio/tool-scons @ ~4.41101.0
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: tool-scons@4.41101.0 has been installed!
+Project has been successfully initialized!
+
+$ find averager | sort
+averager
+averager/.gitignore
+averager/include
+averager/include/README
+averager/lib
+averager/lib/README
+averager/platformio.ini
+averager/src
+averager/test
+averager/test/README
+
+$ cat averager/platformio.ini
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[env:uno]
+platform = atmelavr
+board = uno
+framework = arduino

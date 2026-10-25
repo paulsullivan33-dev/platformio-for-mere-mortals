@@ -1,0 +1,23 @@
+$ pio check -e native
+Checking native > cppcheck (platform: native)
+--------------------------------------------------------------------------------
+Tool Manager: Installing platformio/tool-cppcheck @ ~1.21100.0
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: tool-cppcheck@1.21100.230717 has been installed!
+src/arduino_main.cpp:17: [low:style] The function 'setup' is never used. [unusedFunction]
+src/arduino_main.cpp:22: [low:style] The function 'loop' is never used. [unusedFunction]
+.pio/libdeps/native/ArduinoJson/src/ArduinoJson/Polyfills/preprocessor.hpp:7: [high:error] failed to expand 'ARDUINOJSON_BEGIN_PUBLIC_NAMESPACE', Invalid ## usage when expanding 'ARDUINOJSON_CONCAT_': Unexpected token ')' [preprocessorErrorDirective]
+========================== [PASSED] Took 8.43 seconds ==========================
+
+Component                                                   HIGH    MEDIUM    LOW
+---------------------------------------------------------  ------  --------  -----
+.pio/libdeps/native/ArduinoJson/src/ArduinoJson/Polyfills    1        0        0
+src                                                          0        0        2
+
+Total                                                        1        0        2
+
+Environment    Tool      Status    Duration
+-------------  --------  --------  ------------
+native         cppcheck  PASSED    00:00:08.433
+========================= 1 succeeded in 00:00:08.433 =========================

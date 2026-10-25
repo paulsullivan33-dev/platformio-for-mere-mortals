@@ -1,0 +1,55 @@
+PlatformIO — the distilled commands
+====================================================================
+Placeholders: <env> is an environment name
+(native, uno); OWNER/NAME is a registry
+library's full name (bblanchon/ArduinoJson).
+
+INSTALL (chapter 3)
+--------------------------------------------------------------------
+  python3 -m venv ~/platformio-venv
+  ~/platformio-venv/bin/pip install platformio
+  pio --version
+  PLATFORMIO_CORE_DIR=~/my-store pio ...  # move the download store
+
+PROJECTS (chapters 4-5)
+--------------------------------------------------------------------
+  mkdir my-project                 # init will NOT create it
+  pio project init --project-dir my-project --board uno
+  pio boards                       # the board catalogue
+  pio run                          # every default_env
+  pio run -e <env>                 # just this one
+  pio run -t clean                 # wipe build state (.pio stays in project)
+  pio pkg list                     # what each env actually resolves to
+
+BUILDING (chapters 6, 9-10)
+--------------------------------------------------------------------
+  pio run -e uno                   # watch the RAM/Flash lines
+  ls .pio/build/uno/               # firmware.elf, firmware.hex
+  pio run -e native && .pio/build/native/program
+  # platformio.ini, the three levers:
+  #   build_flags      = -DSAMPLE_COUNT=3      (chapter 10)
+  #   build_src_filter = +<native_main.cpp>    (chapter 9)
+  #   default_envs     = native, uno           (chapter 5)
+
+LIBRARIES (chapters 7-8)
+--------------------------------------------------------------------
+  # your own: a folder under lib/ with .h/.cpp
+  # and a library.json naming it
+  pio pkg search <words>
+  pio pkg show OWNER/NAME
+  pio pkg install -e <env> --library "OWNER/NAME"
+                                   # writes the pinned lib_deps line
+  pio pkg uninstall -e <env> --library "OWNER/NAME"
+
+TEST AND CHECK (chapters 11-12)
+--------------------------------------------------------------------
+  pio test -e native               # Unity tests on the desktop
+  pio check -e native              # cppcheck reads the code
+  pio check -e native --verbose    # when the summary is not enough
+
+THE BOARD (chapter 13 — needs the board in hand)
+--------------------------------------------------------------------
+  pio device list                  # empty list = machine sees no board
+  pio run -e uno -t upload         # flash the firmware
+  pio device monitor -e uno        # serial output; speed from monitor_speed
+  pio device monitor --port /dev/ttyACM0 --baud 9600

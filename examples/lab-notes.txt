@@ -1,0 +1,81 @@
+The lab — one real install, no board in the building
+====================================================================
+
+The lab is PlatformIO Core 6.2.0,
+installed with pip into a Python
+3.12.3 virtual environment on the
+build machine (an Ubuntu 24.04
+sandbox, 2 CPUs, 7.7 GB RAM), with
+its core directory pointed into the
+workspace so every download could be
+measured and kept:
+
+  * pio --version -> PlatformIO Core,
+    version 6.2.0 (transcript t00).
+  * Core directory after all installs:
+    304 MB. The venv itself: 30 MB.
+    The project's own .pio folder:
+    3.3 MB.
+
+What was fetched, each on first use
+and each visible in a transcript:
+
+  * native platform 1.2.1 (t02) --
+    needs no toolchain; the host's
+    gcc/g++ 13.3.0 does the work.
+  * atmelavr platform 5.3.0,
+    toolchain-atmelavr 1.70300.191015
+    (gcc 7.3.0), framework-arduino-avr
+    5.4.0, tool-scons 4.41101.0 (t01 --
+    fetched at project init).
+  * Unity 2.6.1, the test framework
+    (t02/t04, fetched by the builds).
+  * ArduinoJson 7.4.3 from the
+    registry (t03).
+  * tool-cppcheck 1.21100.230717
+    (t07, fetched by pio check).
+  * tool-avrdude 1.60300.200527
+    (t08, fetched by the upload
+    attempt).
+
+The fixture project ("averager", in
+platformio-lab/averager/) builds two
+ways from one library:
+
+  * native: the desktop twin compiles
+    with the host compiler, links, and
+    RUNS -- its output is quoted in
+    chapters 4, 8 and 10.
+  * uno: the AVR cross-build links
+    firmware.elf and firmware.hex;
+    Flash 4864 bytes (15.1%) and RAM
+    268 bytes (13.1%) in its first
+    build, Flash 4848 after the
+    chapter 10 flag change.
+
+The sandbox's one hard limit was
+physical, not computational: no board
+is attached, and none can be. So:
+
+  * pio device list prints nothing
+    (t08) -- an empty list, kept as
+    evidence rather than edited away.
+  * pio run -e uno -t upload builds,
+    then stops at "Looking for upload
+    port..." with the upload_port
+    error (t08). Uploading and the
+    serial monitor are documented
+    only, and chapter 13 says so on
+    its face.
+
+Errors the lab earned honestly and
+the guide kept: init refusing a
+directory that does not exist yet
+(t01); PlatformIO's rewrite of
+platformio.ini dropping section
+comments when it added lib_deps
+(noted in chapter 5); cppcheck's
+high-severity complaint inside the
+registry library's headers (t07),
+classified in chapter 12 as the
+checker's own preprocessor limit.

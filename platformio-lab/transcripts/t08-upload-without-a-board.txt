@@ -1,0 +1,48 @@
+$ pio device list
+
+
+$ pio run -e uno -t upload
+Processing uno (platform: atmelavr; board: uno; framework: arduino)
+--------------------------------------------------------------------------------
+Tool Manager: Installing platformio/tool-avrdude @ ~1.60300.0
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: tool-avrdude@1.60300.200527 has been installed!
+Verbose mode can be enabled via `-v, --verbose` option
+CONFIGURATION: https://docs.platformio.org/page/boards/atmelavr/uno.html
+PLATFORM: Atmel AVR (5.3.0) > Arduino Uno
+HARDWARE: ATMEGA328P 16MHz, 2KB RAM, 31.50KB Flash
+DEBUG: Current (avr-stub) External (avr-stub, simavr)
+PACKAGES: 
+ - framework-arduino-avr @ 5.4.0 
+ - tool-avrdude @ 1.60300.200527 (6.3.0) 
+ - toolchain-atmelavr @ 1.70300.191015 (7.3.0)
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+Found 7 compatible libraries
+Scanning dependencies...
+Dependency Graph
+|-- RunningAverage @ 1.0.0
+Building in release mode
+Checking size .pio/build/uno/firmware.elf
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [=         ]  13.1% (used 268 bytes from 2048 bytes)
+Flash: [==        ]  15.0% (used 4848 bytes from 32256 bytes)
+Configuring upload protocol...
+AVAILABLE: arduino
+CURRENT: upload_protocol = arduino
+Looking for upload port...
+
+Warning! Please install `99-platformio-udev.rules`. 
+More details: https://docs.platformio.org/en/latest/core/installation/udev-rules.html
+
+Error: Please specify `upload_port` for environment or use global `--upload-port` option.
+For some development platforms it can be a USB flash drive (i.e. /media/<user>/<device name>)
+*** [upload] Explicit exit, status 1
+========================= [FAILED] Took 13.32 seconds =========================
+
+Environment    Status    Duration
+-------------  --------  ------------
+uno            FAILED    00:00:13.318
+==================== 1 failed, 0 succeeded in 00:00:13.318 ====================
+(exit code 1)
